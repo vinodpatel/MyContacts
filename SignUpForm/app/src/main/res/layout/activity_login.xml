@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/username_field1"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/username_label"
+            android:layout_weight="25"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/username_label"/>
+
+        <EditText
+            android:id="@+id/username_input"
+            android:layout_weight="75"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/username_label"
+            android:hint="@string/username_input_hint"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/username_field2"
+        android:layout_below="@id/username_field1"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/username_label"
+            android:layout_weight="25"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/password_label"/>
+
+        <EditText
+            android:id="@+id/username_input"
+            android:layout_weight="75"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/username_label"
+            android:hint="@string/password_input_hint"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/username_field3"
+        android:layout_below="@id/username_field2"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/username_label"
+            android:layout_weight="25"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm_label"/>
+
+        <EditText
+            android:id="@+id/username_input"
+            android:layout_weight="75"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/username_label"
+            android:hint="@string/confirm_input_hint"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/username_field3"
+        android:layout_below="@id/username_field3"
+        android:text="@string/submit" />
+
+</RelativeLayout>
