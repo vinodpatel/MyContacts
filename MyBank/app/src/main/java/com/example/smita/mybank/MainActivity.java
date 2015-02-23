@@ -2,28 +2,58 @@ package com.example.smita.mybank;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import Account.BankAccount;
+import Account.SavingsAccount;
+
 
 public class MainActivity extends ActionBarActivity {
 
-    EditText amountInput;
-    Button withdrawButton;
-    Button depositButton;
-    TextView amountDisplay;
+    private static final String TAG = "MainActivity";
+
+    EditText mAmountInput;
+    Button mWithdrawButton;
+    Button mDepositButton;
+    TextView mAmountDisplay;
+    BankAccount mCurrentAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        amountDisplay = (TextView)findViewById(R.id.balance_display);   /*Casting = ~to_char -- View to TextView.  EditText, Button and TextView are all types of View */
-        amountDisplay.setText("Hello World ! ");
 
+        Log.d(TAG, "overdraft fee is " + BankAccount.OVERDRAFT_FEE);
+        mCurrentAccount = new SavingsAccount();
+
+        mAmountDisplay = (TextView) findViewById(R.id.balance_display);
+        mAmountInput = (EditText) findViewById(R.id.amount_input);
+        mWithdrawButton = (Button) findViewById(R.id.button_Withdraw);
+        mDepositButton = (Button) findViewById(R.id.button_Deposit);
+
+        mWithdrawButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String amount = mAmountInput.getText().toString();
+                mCurrentAccount.withdraw(Double.parseDouble(amount));
+                mAmountDisplay.setText("Balance is " + mCurrentAccount.getBalance());
+            }
+        });
+
+        mDepositButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String amount = mAmountInput.getText().toString();
+                mCurrentAccount.deposit(Double.parseDouble(amount));
+                mAmountDisplay.setText("Balance is " + mCurrentAccount.getBalance());
+            }
+        });
     }
 
 

@@ -46,7 +46,7 @@
             android:text="@string/password_label"/>
 
         <EditText
-            android:id="@+id/username_input"
+            android:id="@+id/password_input"
             android:layout_weight="75"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             android:text="@string/confirm_label"/>
 
         <EditText
-            android:id="@+id/username_input"
+            android:id="@+id/confirm_input"
             android:layout_weight="75"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
